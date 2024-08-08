@@ -173,7 +173,8 @@ def create_files_first_step():
                 os.mkdir(delta_path)
         temp_name_file = item_description.method_call.replace('.', ' ')
         new_path = delta_path + '\\' + temp_name_file + '.md'
-
+        if len(new_path) > 250:
+            continue
         is_error = 0
         with (open(new_path, 'w+', encoding='utf-8') as f):
             tag = item_description.path_local_file[-len(item_description.path_local_file) + 1:]
